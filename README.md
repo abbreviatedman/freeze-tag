@@ -12,7 +12,6 @@ freeze-tag creates a recursive proxy of your object, affecting the ways you can 
 
 For each of these, you can decide whether you want your objects to be "tagged" and console.warn()  you if they're mutated, or for them to be completely "frozen" so that you can't mutate them at all. Or both! Or neither.
 
-
 ### Usage:
 
 ```shell
@@ -65,7 +64,11 @@ var freeze = freezeTag({
 
 `true` defaults to `{tag: true, freeze: true}`, and the `options` object defaults to `{set: true}` and everything else `false`.
 
-In terms of speed, whether you freeze or tag doesn't matter, but the more mutation types you care about, the slower things will get. I recommend not using it at all in production, and the default is set to just care about `set`, which is fine for most use cases.
+### Speed
+
+**It is recommended that you do not use `freeze-tag` in a production build.** However, it is more than fast enough for development. If you want faster, use the default option, which just handles `set`, rather than  configuring `freeze-tag` to handle every possible kind of mutation.
+
+Whether you freeze or tag or both doesn't matter, though. Go crazy.
 
 ### What's Next
 
