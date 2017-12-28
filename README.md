@@ -77,3 +77,7 @@ TODO:
 2. Add toggleable protections from usage in production.
 3. Clean up the code and make it a bit prettier.
 4. Remember what else I wanted to change.
+
+![alt text][freeze tag gif]
+
+[freeze tag gif]: http://www.footy4kids.co.uk/wp-content/uploads/2015/09/freeze.gif "how to play freeze tag?"
