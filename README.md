@@ -35,7 +35,8 @@ And to unfreeze and mutate your object, you can simply `Object.assign` or Object
 var unfrozen = Object.assign({}, frozenObj, {bestInLife: 'tooling'});
 ```
 
-### Customization
+### Configuration
+
 You can also customize behavior by importing the `freeze-tag` function, to which you can pass in an `options` object.
 
 ```javascript
@@ -72,4 +73,4 @@ TODO:
 1. Expand and clarify this README.
 2. Add toggleable protections from usage in production.
 3. Clean up the code and make it a bit prettier.
-4. Remember what else I wanted to do with this.
+4. Remember what else I wanted to change.
