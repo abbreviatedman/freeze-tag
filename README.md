@@ -31,7 +31,7 @@ var frozenObj = freeze(obj);
 And to unfreeze and mutate your object, you can simply `Object.assign` or Object Spread or however you like to do it.
 
 ```javascript
-var unfrozen = Object.assign({}, frozenObj, {bestInLife: 'tooling'});
+var unfrozen = Object.assign({}, frozenObj, {whatIsBestInLife: 'tooling'});
 ```
 
 ### Configuration
