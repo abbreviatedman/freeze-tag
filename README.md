@@ -89,4 +89,6 @@ Like this:
 
 ![alt text][freeze tag gif]
 
+Except usually without soccer balls. But that sounds cool! Hit me up if you wanna play.
+
 [freeze tag gif]: http://www.footy4kids.co.uk/wp-content/uploads/2015/09/freeze.gif "how to play freeze tag?"
