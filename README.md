@@ -1,8 +1,12 @@
-freeze-tag README.md
-
 # freeze-tag
 
-A simple, fast, and highly customizable way to recursively freeze objects, avoiding mutation. It's faster than recursively `Object.freeze`-ing, and it has a light but configurable API so you can code immutably without thinking about it too much.
+A simple, fast, and highly customizable way to recursively freeze objects, avoiding mutation.
+
+### Features
+
+* **Simple API** - Freezing is one extra function call. Then you can copy them for mutation any way you want!
+* **Customizable** - A simple options parameter allows you to set rules for mutations.
+* **Fast** - Places mutation handler on your objects, which is way faster than `Object.freeze`-ing them.
 
 freeze-tag creates a recursive proxy of your object, affecting the ways you can mutate: `set`, `delete`, `setPropertyOf`, and `defineProperty`.
 
