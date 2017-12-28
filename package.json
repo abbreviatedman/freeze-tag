@@ -11,9 +11,10 @@
     "url": "git+https://github.com/abbreviatedman/freeze-tag.git"
   },
   "keywords": [
-    "immutable",
+    "immutability",
     "recursive",
-    "state"
+    "state",
+    "proxy"
   ],
   "author": "Colin Jaffe",
   "license": "ISC",
