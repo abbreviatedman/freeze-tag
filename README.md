@@ -2,27 +2,39 @@ freeze-tag README.md
 
 # freeze-tag
 
-A simple, fast, and highly customizable way to recursively freeze objects, avoiding mutation. It's faster than recursively Object.freezing, and it has a light but configurable API so you can code immutably without thinking about it too much.
+A simple, fast, and highly customizable way to recursively freeze objects, avoiding mutation. It's faster than recursively `Object.freeze`-ing, and it has a light but configurable API so you can code immutably without thinking about it too much.
 
-freeze-tag creates a recursive proxy of your object, affecting the ways you can mutate: set, delete, setPropertyOf, and defineProperty.
+freeze-tag creates a recursive proxy of your object, affecting the ways you can mutate: `set`, `delete`, `setPropertyOf`, and `defineProperty`.
 
 For each of these, you can decide whether you want your objects to be "tagged" and console.warn()  you if they're mutated, or for them to be completely "frozen" so that you can't mutate them at all. Or both! Or neither.
 
 
 ### Usage:
 
-var freezeTag = require('freeze-tag');
-var freeze = freezeTag();
+```shell
+npm install freeze-tag
+```
+
+```javascript
+var freeze = require('freeze-tag').freeze;
+```
 
 Now you have a function you can use anywhere in your app.
 
+```javascript
 var frozenObj = freeze(obj);
+```
 
-And to unfreeze and mutate your object, you can simply Object.assign or Object Spread or however you like to do it.
+And to unfreeze and mutate your object, you can simply `Object.assign` or Object Spread or however you like to do it.
 
+```javascript
 var unfrozen = Object.assign({}, frozenObj, {bestInLife: 'tooling'});
+```
 
-You can also pass in an options object to freezeTag to tell it what kind of function to return.
+You can also customize `freeze` by importing the `freeze-tag` function, to which you can pass in an `options` object.
+
+```javascript
+var freezeTag = require('freeze-tag').freezeTag;
 
 var freeze = freezeTag({
   set: true,
@@ -30,21 +42,24 @@ var freeze = freezeTag({
   defineProperty: false,
   setPrototypeOf: true
 });
+```
 
-This would return a function that affects the set, delete, and setPrototypeOf mutations, but not the defineProperty.
+This would return a function that affects the `set`, `delete`, and `setPrototypeOf` mutations, but not the `defineProperty` mutation.
 
-You can also substitute an object for any "true" to decide between tagging mutations and freezing them from happening.
+You can also substitute an object for any `true` to decide between tagging mutations and freezing them from happening.
 
+```javascript
 var freeze = freezeTag({
   set: {tag: false, freeze: true},
   delete: true,
   defineProperty: false,
   setPrototypeOf: {tag: true, freeze: false}
 });
+```
 
-"true" defaults to {tag: true, freeze: true}, and the options object defaults to {set: true} and everything else false.
+`true` defaults to `{tag: true, freeze: true}`, and the `options` object defaults to `{set: true}` and everything else `false`.
 
-In terms of speed, whether you freeze or tag doesn't matter, but the more mutation types you care about, the slower things will get. I recommend not using it at all in production, and the default is set to just care about "set", which is fine for most use cases.
+In terms of speed, whether you freeze or tag doesn't matter, but the more mutation types you care about, the slower things will get. I recommend not using it at all in production, and the default is set to just care about `set`, which is fine for most use cases.
 
 
 TODO:

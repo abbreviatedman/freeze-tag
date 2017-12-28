@@ -72,6 +72,7 @@ function freezeTag(userOptions) {
   return obj => new Proxy(obj, handler);
 }
 
+const freeze = freezeTag();
 
 
-module.exports = freezeTag;
+module.exports = {freezeTag, freeze};
