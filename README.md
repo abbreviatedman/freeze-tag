@@ -35,7 +35,8 @@ And to unfreeze and mutate your object, you can simply `Object.assign` or Object
 var unfrozen = Object.assign({}, frozenObj, {bestInLife: 'tooling'});
 ```
 
-You can also customize `freeze` by importing the `freeze-tag` function, to which you can pass in an `options` object.
+### Customization
+You can also customize behavior by importing the `freeze-tag` function, to which you can pass in an `options` object.
 
 ```javascript
 var freezeTag = require('freeze-tag').freezeTag;
@@ -65,6 +66,7 @@ var freeze = freezeTag({
 
 In terms of speed, whether you freeze or tag doesn't matter, but the more mutation types you care about, the slower things will get. I recommend not using it at all in production, and the default is set to just care about `set`, which is fine for most use cases.
 
+### What's Next
 
 TODO:
 1. Expand and clarify this README.
