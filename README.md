@@ -10,7 +10,7 @@ A simple, fast, and highly customizable way to recursively freeze objects, avoid
 
 freeze-tag creates a recursive proxy of your object, affecting the ways you can mutate: `set`, `delete`, `setPropertyOf`, and `defineProperty`.
 
-For each of these, you can decide whether you want your objects to be "tagged" and console.warn() you if they're mutated, or for them to be completely "frozen" so that you can't mutate them at all. Or both! Or neither.
+For each of these, you can decide whether you want your objects to be "tagged" and console.error() if they're mutated, or for them to be completely "frozen" so that you can't mutate them at all. Or both! Or neither.
 
 ### Usage:
 
@@ -55,7 +55,7 @@ Now you have a `freeze` function that affects the `set`, `delete`, and `setProto
 var frozenObj = freeze(obj);
 ```
 
-You can also substitute an object for any `true` to decide between tagging mutations and freezing them from happening.
+You can also substitute an object for any `true` to decide between tagging mutations for `console.error`-ing and freezing them from happening.
 
 ```javascript
 var freeze = freezeTag({
@@ -78,9 +78,10 @@ Whether you freeze or tag or both doesn't matter, though. Go crazy.
 
 TODO:
 1. Expand and clarify this README.
-2. Add toggleable protection from production use.
-3. Clean up the code and make it a bit prettier.
-4. Remember what else I wanted to change.
+2. Make the console.errors a bit more readable.
+3. Add toggleable protection from production use.
+4. Clean up the code and make it a bit prettier.
+5. Remember what else I wanted to change.
 
 ### How Does One Play the Actual Game of Freeze Tag?
 
