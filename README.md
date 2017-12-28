@@ -78,6 +78,10 @@ TODO:
 3. Clean up the code and make it a bit prettier.
 4. Remember what else I wanted to change.
 
+### How Does One Play the Actual Game of Freeze Tag?
+
+Like this:
+
 ![alt text][freeze tag gif]
 
 [freeze tag gif]: http://www.footy4kids.co.uk/wp-content/uploads/2015/09/freeze.gif "how to play freeze tag?"
