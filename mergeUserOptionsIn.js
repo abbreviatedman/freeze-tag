@@ -36,7 +36,6 @@ function mergeUserOptionsIn(userOptions = {}) {
   }
 
   // Add get trap for recursion to work.
-
   mergedOptions.get = true;
 
   return mergedOptions;

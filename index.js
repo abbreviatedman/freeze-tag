@@ -6,20 +6,20 @@ function freezeTag(userOptions) {
 
   const handler = {};
 
-  const mergedOptions = mergeUserOptionsIn(userOptions);
+  const options = mergeUserOptionsIn(userOptions);
 
   const handlerFunctions = {
     get(target, property) {
 
       // where the recursion happens
       if (typeof target[property] === 'object' && target[property] !== null) {
-        return freezeTag(mergedOptions)(target[property]);
+        return freezeTag(options)(target[property]);
       }
       return target[property];
     },
 
     set(target, property, value) {
-      const { freeze, tag } = mergedOptions.set;
+      const { freeze, tag } = options.set;
       if (tag) {
         warnUser(target, `Property "${property}"`, `changing its value to "${value}"`, freeze);
       }
@@ -30,7 +30,7 @@ function freezeTag(userOptions) {
     },
 
     deleteProperty(target, property) {
-      const { freeze, tag } = mergedOptions.deleteProperty;
+      const { freeze, tag } = options.deleteProperty;
       if (tag) {
         warnUser(target, `Property "${property}"`, 'delete', freeze);
       }
@@ -41,7 +41,7 @@ function freezeTag(userOptions) {
     },
 
     setPrototypeOf(target, prototype) {
-      const { freeze, tag } = mergedOptions.setPrototypeOf;
+      const { freeze, tag } = options.setPrototypeOf;
       if (tag) {
         warnUser(target, 'The prototype', 'Object.setPrototypeOf', freeze);
       }
@@ -52,7 +52,7 @@ function freezeTag(userOptions) {
     },
 
     defineProperty(target, property, descriptor) {
-      const { freeze, tag } = mergedOptions.setPrototypeOf;
+      const { freeze, tag } = options.defineProperty;
       if (tag) {
         warnUser(target, `Property "${property}"`, 'Object.defineProperty', freeze);
       }
@@ -63,8 +63,8 @@ function freezeTag(userOptions) {
     }
   };
 
-  Object.keys(mergedOptions).forEach(key => {
-    if (mergedOptions[key]) {
+  Object.keys(options).forEach(key => {
+    if (options[key]) {
       handler[key] = handlerFunctions[key];
     }
   });
