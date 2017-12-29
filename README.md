@@ -41,7 +41,7 @@ var unfrozen = Object.assign({}, frozenObj, {whatIsBestInLife: 'tooling'});
 
 ### Configuration
 
-You can also customize behavior by importing the `freeze-tag` function, to which you can pass in an `options` object.
+You can also customize behavior by importing the `freeze-tag` function, to which you can pass in an `options` object and get back a customized `freeze` function.
 
 ```javascript
 var freezeTag = require('freeze-tag').freezeTag;
