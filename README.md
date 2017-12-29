@@ -14,7 +14,7 @@ For each of these, you can decide whether you want your objects to be "tagged" a
 
 ### Usage with Redux:
 
-`freeze-tag` was designed with [Redux][Redux] in mind. Use the tiny [redux-freeze-tag][redux-freeze-tag] library to throw it into your reducers with one lineof code.
+`freeze-tag` was designed with [Redux][Redux] in mind. Use the tiny [redux-freeze-tag][redux-freeze-tag] library to throw it into your reducers with one line of code.
 
 ### Vanilla Usage:
 
