@@ -4,9 +4,10 @@ A simple, fast, and highly customizable way to recursively freeze objects, avoid
 
 ### Features
 
-* **Simple API** - Freezing is one extra function call. Then you can copy them for mutation any way you want!
-* **Customizable** - A simple options parameter allows you to set rules for mutations.
+* **Recursive** - Begins at your root object and goes all the way down. No data structure left behind.
 * **Fast** - Places mutation handler on your objects, which is way faster than `Object.freeze`-ing them.
+* **Simple API** - Freezing is one extra function call. Then you can copy them for mutation using whatever method you normally (I hope!) use to copy mutable objects.
+* **Customizable** - A simple options parameter allows you to set rules for mutations.
 
 freeze-tag creates a recursive proxy of your object, affecting the ways you can mutate: `set`, `delete`, `setPropertyOf`, and `defineProperty`.
 
