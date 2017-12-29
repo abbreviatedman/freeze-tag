@@ -12,7 +12,11 @@ freeze-tag creates a recursive proxy of your object, affecting the ways you can 
 
 For each of these, you can decide whether you want your objects to be "tagged" and console.error() if they're mutated, or for them to be completely "frozen" so that you can't mutate them at all. Or both! Or neither.
 
-### Usage:
+### Usage with Redux:
+
+`freeze-tag` was designed with [Redux][Redux] in mind. Use the tiny [redux-freeze-tag][redux-freeze-tag] library to throw it into your reducers with one lineof code.
+
+### Vanilla Usage:
 
 ```shell
 npm install freeze-tag
@@ -91,4 +95,6 @@ Like this:
 
 Except usually without soccer balls. But that sounds cool! Hit me up if you wanna play.
 
+[Redux]: https://redux.js.org/
+[redux-freeze-tag]: https://github.com/abbreviatedman/redux-freeze-tag
 [freeze tag gif]: http://www.footy4kids.co.uk/wp-content/uploads/2015/09/freeze.gif "how to play freeze tag?"
