@@ -29,8 +29,17 @@ function freezeTag(userOptions) {
       return true;
     },
 
+    // Note the difference between 'deleteProperty' and 'delete'.
+    // Our users don't care that the proxy handler is called 'deleteProperty'.
+    // (And thus this function must be named the same, or the es6 proxy mother
+    // bird won't recognize it as hers and will throw it right out of the nest.)
+    // Our uses will remember 'delete' much more easily, as that's THE ACTUAL
+    // NAME OF THE OPERATOR.
+    // So the options object property is called 'delete'.
+    // And this function is called 'deleteProperty'.
+    // And their feud is neverending.
     deleteProperty(target, property) {
-      const { freeze, tag } = options.deleteProperty;
+      const { freeze, tag } = options.delete;
       if (tag) {
         warnUser(target, `Property "${property}"`, 'delete', freeze);
       }
@@ -63,6 +72,7 @@ function freezeTag(userOptions) {
     }
   };
 
+  // If we want it, the matching function goes in the handler object.
   Object.keys(options).forEach(key => {
     if (options[key]) {
       handler[key] = handlerFunctions[key];
@@ -72,6 +82,7 @@ function freezeTag(userOptions) {
   return obj => new Proxy(obj, handler);
 }
 
+// Make a default version of the freeze function.
 const freeze = freezeTag();
 
 

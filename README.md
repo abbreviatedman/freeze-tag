@@ -92,4 +92,4 @@ Except usually without soccer balls. But that looks kinda cool, right? Hit me up
 
 [Redux]: https://redux.js.org/
 [redux-freeze-tag]: https://github.com/abbreviatedman/redux-freeze-tag
-[freeze tag gif]: http://www.footy4kids.co.uk/wp-content/uploads/2015/09/freeze.gif "how to play freeze tag?"
+[freeze tag gif]: http://www.footy4kids.co.uk/wp-content/uploads/2015/09/freeze.gif "freeze tag gif? FREEZE TAG GIF."
