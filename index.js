@@ -30,14 +30,18 @@ function freezeTag(userOptions) {
     },
 
     // Note the difference between 'deleteProperty' and 'delete'.
-    // Our users don't care that the proxy handler is called 'deleteProperty'.
-    // (And thus this function must be named the same, or the es6 proxy mother
-    // bird won't recognize it as hers and will throw it right out of the nest.)
-    // Our uses will remember 'delete' much more easily, as that's THE ACTUAL
-    // NAME OF THE OPERATOR.
-    // So the options object property is called 'delete'.
-    // And this function is called 'deleteProperty'.
-    // And their feud is neverending.
+
+    // I have no idea why the JavaScript proxy handler needs the
+    // function to be called "deleteProperty".
+
+    // It's not "setProperty" or "getProperty".
+
+    // Maybe they wanted it to match "defineProperty"?
+
+    // But we actually DO call "Object.defineProperty". We don't call
+    // deleteProperty.
+
+    // I'm glad we had this talk.
     deleteProperty(target, property) {
       const { freeze, tag } = options.delete;
       if (tag) {
@@ -72,7 +76,8 @@ function freezeTag(userOptions) {
     }
   };
 
-  // If we want it, the matching function goes in the handler object.
+  // If it's approved on the options object, set the matching
+  // custom handler function onto our handler object.
   Object.keys(options).forEach(key => {
     if (options[key]) {
       handler[key] = handlerFunctions[key];
@@ -84,6 +89,5 @@ function freezeTag(userOptions) {
 
 // Make a default version of the freeze function.
 const freeze = freezeTag();
-
 
 module.exports = {freezeTag, freeze};
