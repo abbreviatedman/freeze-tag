@@ -1,3 +1,5 @@
+# NOTE! This is being taken off of npm due to it not being sufficiently performant. This is a work in progress and use at your own risk!!
+
 # freeze-tag
 
 A simple, fast, and highly customizable way to deep freeze objects, avoiding mutation.
